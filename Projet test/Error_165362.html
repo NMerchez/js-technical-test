@@ -7,11 +7,13 @@
 
 	<link href="Style/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Style/myStyle.css" media="all"/>
+	<link href="Style/bootstrap-switch.css" rel="stylesheet">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>		
 	<script type="text/javascript" src="js/myScript.js"></script>
+	<script type="text/javascript" src="js/bootstrap-switch.js"></script>
 
 	<title>Test technique StadLine</title>
 </head>
@@ -25,15 +27,14 @@
 			<ul id="conversation">
 					<li ng-repeat="author in authors">
 						<div class="container_211X0">
-							<div class="authorImgFilter" ng-click="filterFunction(author.authorId)">
-								<img src={{author.img}}>
+							<div class="authorImgFilter">
+								<input type="checkbox" name="my-checkbox" checked ng-model="author.active">
+								<img src={{author.img}} class="img-rounded">
 								<span>{{author.authorName}}</span>
 							</div>
-							
 						</div>
 					</li>
 				</ul>
-				<button ng-click="clic()">Appuyer</button>
 			</div>
 		</div>
 		<div class="col-md-9 container_220">
@@ -41,9 +42,9 @@
 			<div class="container_2210">
 				<ul id="conversation">
 					<li ng-repeat="message in conversation">
-						<div class="message" ng-class="{{message.authorId}} == 1 ? 'left col-md-6' : 'right col-md-offset-6 col-md-6'">
-							<div class="authorImg">
-								<img src={{message.img}}>
+						<div class="message" ng-class="{{message.authorId}} == 1 ? 'left col-md-8' : 'right col-md-offset-4 col-md-8'" ng-show="isAuthorActive(message.authorId)">
+							<div class="authorImgMessage">
+								<img src={{message.img}} class="img-rounded">
 							</div>
 							<div class="message_content">
 								<span>{{message.text}}</span>

@@ -25,17 +25,20 @@ technicalTest.controller('appCtrl', ['$scope',
 	        {
 	        	authorId: 1,
 	        	authorName: "Jean Gabin",
-	        	img: "img/img1.jpg"
+	        	img: "img/img1.jpg",
+	        	active: true
 	        },
 	        {
 	        	authorId: 2,
 	        	authorName: "Petit Poix",
-	        	img: "img/img2.jpg"
+	        	img: "img/img2.jpg",
+	        	active: true
 	        },
 	        {
 	        	authorId: 3,
 	        	authorName: "Hugues Gentil",
-	        	img: "img/img3.jpg"
+	        	img: "img/img3.jpg",
+	        	active: true
 	        }
         ];
 
@@ -70,12 +73,16 @@ technicalTest.controller('appCtrl', ['$scope',
         		+" Excepteur sint occaecat cupidatat non proident,"
         		+" sunt in culpa qui officia deserunt mollit anim id est laborum.",
 	        	img: "img/img3.jpg"
-        	}
+	        }
         ];
 
         // FUNCTIONS
         $scope.filterFunction = function (authorId) {
-        	alert('Hello '+ authorId + ' !');
+        	for (var i = $scope.conversation.length - 1; i >= 0; i--) {
+        		if($scope.conversation[i].authorId == authorId){
+        			$scope.conversation[i].show = !$scope.conversation[i].show;
+        		}
+        	}
         }
         $scope.getAuthorName = function(authorId){
         	for (var i = $scope.authors.length - 1; i >= 0; i--) {
@@ -93,7 +100,16 @@ technicalTest.controller('appCtrl', ['$scope',
         	}
         	return users.substring(0,users.length-2);
         }
-        
+        $scope.isAuthorActive = function(authorId){
+        	for (var i = $scope.authors.length - 1; i >= 0; i--) {
+        		if($scope.authors[i].authorId == authorId){
+        			return $scope.authors[i].active;
+        		}
+        	}
+        }
+
+
+        $("[name='my-checkbox']").bootstrapSwitch();
 
     }
 

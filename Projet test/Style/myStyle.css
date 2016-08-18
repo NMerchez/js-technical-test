@@ -24,14 +24,17 @@ body{
 
 /***************  Components  **************************/
 img{
-	width: 12%;
-	height: 12%;
+	width: 15%;
+	height: 15%;
 	max-width: 60px;
 	max-height: 60px;
 }
 .authorImgFilter{
 	margin: 0.2em;
 	cursor: pointer;
+}
+.authorImgMessage{
+	margin: 0.2em;
 }
 .signature{
 	font-style: italic;
@@ -45,10 +48,14 @@ ul{
 	list-style-type: none;
 }
 .right{
+	float: right;
 	text-align: right;
+	padding-left: 20em;
 }
 .left{
+	float: left;
 	text-align: left;
+	padding-right: 20em;
 }
 .message_content{
 	cursor: context-menu;
