@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="Style/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="Style/myStyle.css" media="all"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>		
+		<script type="text/javascript" src="js/myScript.js"></script>
+		
+		<title>Test technique StadLine</title>
+	</head>
+	<body ng-controller="appCtrl">
+		<div class="row container_100">
+			<h1 class="title_main">Error message #165362</h1>
+		</div>
+		<div class="col-md-12 container_200">
+			<div class="col-md-3 container_210">
+				<div class="container_2110">
+					<button ng-click="clic()">Appuyer</button>
+				</div>
+			</div>
+			<div class="col-md-9 container_220">
+				<h4 class="title_primary">Conversation with {{userName}}</h4>
+				<div class="container_2210">
+					<ul id="conversation">
+						<li ng-repeat="message in conversation">
+							<div class="message" ng-class=" {{message.authorId}} == 1 ? 'left col-md-6' : 'right col-md-offset-6 col-md-6' ">
+								<img src={{message.img}}>
+								<div class="message_content">
+									<span>{{message.text}}</span>
+								</div>
+								
+								<span class="signature">par {{message.author}}</span>
+							</div>
+						</li>
+					</ul>
+					<div class="col-md-12">
+						<input type="text" name="lbl_userName" ng-model="userName"></input>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
